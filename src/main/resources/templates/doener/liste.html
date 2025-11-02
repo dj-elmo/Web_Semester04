@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <title th:text="#{doener.liste.titel}">doenerlister</title>
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+
+<body>
+  <div th:insert="~{fragments/kopffuss :: kopf}"></div>
+
+  <main>
+    <h1>
+      <span th:text="#{doener.liste.titel}">Liste der doener</span>
+    </h1>
+    <table>
+      <thead>
+        <tr>
+          <th th:text="#{doener.liste.spalte.id}">ID</th>
+          <th th:text="#{doener.liste.spalte.bezeichnung}">Bezeichnung</th>
+          <th th:text="#{doener.liste.spalte.preis}">Preis</th>
+          <th th:text="#{doener.liste.spalte.vegetarizitaet}">Vegetarizität</th>
+          <th th:text="#{doener.liste.spalte.bestand}">Bestand</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="doener : ${doenerListe}">
+          <td th:text="${doener.id}">id</td>
+          <td th:text="${doener.bezeichnung}">Bezeichnung</td>
+          <td th:text="${doener.preis}">Preis</td>
+          <!--<td th:text="${doener.vegetarizitaet}">Vegetarizität</td>-->
+          <td><span th:text="${doener.vegetarizitaet}">1</span> – <span
+              th:text="#{doener.vegetarizitaet.__${doener.vegetarizitaet}__}">vegetarisch</span></td>
+          <td th:text="${doener.bestand}">Bestand</td>
+          <td>
+            <a th:href="@{'/doener/' + ${doener.id}}" th:text="#{doener.liste.spalte.bearbeiten}"
+              class="bearbeiten">Bearbeiten</a>
+            <a th:href="@{'/doener/' + ${doener.id} + '/delete'}" th:text="#{doener.liste.spalte.loeschen}"
+              class="loeschen">Löschen</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a class="plain-link" th:href="@{/doener/0}">
+      <button type="button" class="neu-doener" th:text="#{doener.liste.neudoener}">Neuer Döner</button>
+    </a>
+    <form th:action="@{'/doener/api/doener/neu'}" method="post">
+      <button type="submit" class="neu-doener" th:text="#{doener.liste.rndmdoener}">Zufälliger Döner</button>
+    </form>
+  </main>
+
+  <div th:insert="~{fragments/kopffuss :: fuss}"></div>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <meta charset="UTF-8" />
+  <title th:text="#{kopf.titel}">Dönerverleih</title>
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+
+<body>
+  <div th:fragment="kopf">
+    <header class="kopf-header">
+      <div class="kopf-logo-title">
+        <img src="/images/donerLogo.png" alt="Logo" class="kopf-logo" />
+        <span class="kopf-title" th:text="#{kopf.titel}">Dönerverleih</span>
+      </div>
+      <nav class="kopf-nav">
+        <a sec:authorize="hasRole('ADMIN')" th:href="@{/benutzer}" class="kopf-nav-link"
+          th:text="#{kopf.benutzer}">Benutzer</a>
+        <a th:href="@{/doener}" class="kopf-nav-link" th:text="#{kopf.doener}">Döner</a>
+      </nav>
+      <div class="kopf-lang">
+        <a th:href="@{?sprache=de}" class="kopf-lang-link">DE</a>
+        <a th:href="@{?sprache=en}" class="kopf-lang-link">EN</a>
+        <a th:href="@{?sprache=nl}" class="kopf-lang-link">NL</a>
+        <div>
+          <span>|</span>
+          <a th:href="@{/logout}" class="kopf-nav-link" th:text="#{kopf.logout}">Logout</a>
+        </div>
+      </div>
+    </header>
+    <!-- Anzeige der Fehlermeldung -->
+    <div th:if="${info}" class="info-message">
+      <p th:text="#{${info}}"></p>
+    </div>
+  </div>
+
+
+  <footer class="kopf-footer" th:fragment="fuss">
+    <span sec:authorize="isAuthenticated()"
+      th:text="'Eingeloggt als: ' + ${#authentication.name} + ' | Rolle: ' + ${#authentication.authorities}"></span>
+  </footer>
+</body>
+
+</html>

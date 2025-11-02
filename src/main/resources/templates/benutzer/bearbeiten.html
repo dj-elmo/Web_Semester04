@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <title th:text="#{benutzer.bearbeiten.titel(${loginname})}">Benutzer bearbeiten</title>
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+
+<body>
+  <div th:insert="~{fragments/kopffuss :: kopf}"></div>
+
+  <main>
+    <h1>
+      <span th:text="#{benutzer.bearbeiten.titel(${loginname})}">Benutzer bearbeiten</span>
+    </h1>
+
+    <form th:action="@{'/benutzer/' + ${loginname}}" th:object="${formular}" method="post">
+      <table>
+        <tr>
+          <td><label for="name" th:text="#{benutzer.name}">Name</label></td>
+          <td th:classappend="${#fields.hasErrors('name')} ? 'feldfehler'">
+            <input id="name" type="text" th:field="*{name}" required />
+            <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="fehlertext">
+              Fehler
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="email" th:text="#{benutzer.email}">Digitalpostanschrift</label></td>
+          <td th:classappend="${#fields.hasErrors('digitalpostanschrift')} ? 'feldfehler'">
+            <input id="email" type="text" th:field="*{digitalpostanschrift}" required />
+            <div th:if="${#fields.hasErrors('digitalpostanschrift')}" th:errors="*{digitalpostanschrift}"
+              class="fehlertext">
+              Fehler
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><label th:text="#{benutzer.vegetarizitaet}">Vegetarizität</label></td>
+          <td>
+            <input type="radio" id="unvegetarisch" name="vegetarizitaet" value="0" th:field="*{vegetarizitaet}" />
+            <label for="unvegetarisch" th:text="#{benutzer.vegetarizitaet.unvegetarisch}">unvegetarisch</label>
+            <input type="radio" id="vegetarisch" name="vegetarizitaet" value="1" th:field="*{vegetarizitaet}" />
+            <label for="vegetarisch" th:text="#{benutzer.vegetarizitaet.vegetarisch}">vegetarisch</label>
+            <input type="radio" id="vegan" name="vegetarizitaet" value="2" th:field="*{vegetarizitaet}" />
+            <label for="vegan" th:text="#{benutzer.vegetarizitaet.vegan}">vegan</label>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="rolle" th:text="#{benutzer.rolle}">Rolle</label></td>
+          <td>
+            <select id="rolle" th:field="*{rolle}">
+              <option value="ADMIN" th:text="#{benutzer.rolle.admin}">Admin</option>
+              <option value="KUNDE" th:text="#{benutzer.rolle.kunde}">Kunde</option>
+              <option value="GESPERRT" th:text="#{benutzer.rolle.gesperrt}">Gesperrt</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="losung" th:text="#{benutzer.losung}">Losung</label></td>
+          <td th:classappend="${#fields.hasErrors('losung')} ? 'feldfehler'">
+            <input id="losung" type="password" th:field="*{losung}" />
+            <div th:if="${#fields.hasErrors('losung')}" th:errors="*{losung}" class="fehlertext"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="losungWiederh" th:text="#{benutzer.losungwh}"> Losung (Wiederholung)</label>
+          </td>
+          <td th:classappend="${#fields.hasErrors('losungWiederh')} ? 'feldfehler'">
+            <input id="losungWiederh" type="password" th:field="*{losungWiederh}" />
+            <div th:if="${#fields.hasErrors('losungWiederh')}" th:errors="*{losungWiederh}" class="fehlertext"></div>
+          </td>
+        </tr>
+      </table>
+      <button type="submit">OK</button>
+      <button type="reset">Reset</button>
+    </form>
+  </main>
+
+  <div th:insert="~{fragments/kopffuss :: fuss}"></div>
+</body>
+
+</html>

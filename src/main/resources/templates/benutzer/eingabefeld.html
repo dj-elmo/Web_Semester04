@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <!-- Fragment: Anzeige-Modus -->
+    <td th:fragment="ausgeben(loginName,feldname,wert)" class="inline-edit-td">
+        <span th:text="${wert}" th:hx-get="@{'/benutzer/' + ${loginName} + '/hx/feld/' + ${feldname}}"
+            hx-target="closest td" hx-trigger="click"></span>
+    </td>
+
+    <!-- Fragment: Editier-Modus -->
+    <td th:fragment="bearbeiten(loginName,feldname,wert)" class="inline-edit-td">
+        <form class="inline-edit-form" th:hx-put="@{'/benutzer/' + ${loginName} + '/hx/feld/' + ${feldname}}"
+            hx-target="closest td">
+            <input class="inline-edit-input" name="wert" th:value="${wert}" type="text" />
+            <button class="inline-edit-btn" type="submit">OK</button>
+        </form>
+    </td>
+</body>
+
+</html>

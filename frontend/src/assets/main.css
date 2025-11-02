@@ -1,0 +1,160 @@
+@import './base.css';
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+body {
+  color: #222; /* dunkle Schrift */
+  background: #fff; /* heller Hintergrund */
+}
+
+@media (max-width: 900px) {
+  .kopf-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+  .kopf-nav {
+    margin-left: 0;
+    margin-top: 10px;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  .kopf-nav-link {
+    width: 100%;
+    text-align: left;
+    padding-left: 0;
+  }
+}
+
+/* Noch kleinere Bildschirme */
+@media (max-width: 600px) {
+  .kopf-header {
+    padding: 10px;
+  }
+  .kopf-title {
+    font-size: 1.1em;
+  }
+  .kopf-footer {
+    font-size: 0.9em;
+    height: 32px;
+    padding: 6px;
+  }
+}
+
+  /* Grundlayout */
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  max-width: 900px;
+  margin: 40px auto 0 auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  padding: 32px 36px 36px 36px;
+}
+
+h1 span {
+  font-size: 2rem;
+  color: #222;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+/* Header */
+header {
+  background-color: #b30000;
+  color: white;
+  padding: 10px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+header img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+header span {
+  font-size: 1.5em;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+header nav {
+  margin-left: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+header nav a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 5px;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+header nav a:hover {
+  background: #fff;
+  color: #b30000;
+}
+
+header > div:last-child {
+  display: flex;
+  gap: 10px;
+}
+
+header > div:last-child a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border 0.2s;
+}
+
+header > div:last-child a:hover {
+  background: #fff;
+  color: #b30000;
+  border: 1px solid #b30000;
+}
+
+
+
+/* Footer */
+footer {
+  background-color: #b30000;
+  height: 40px;
+  margin-top: 40px;
+  border-radius: 10px 10px 0 0;
+
+}

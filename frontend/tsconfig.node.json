@@ -1,0 +1,19 @@
+{
+  "extends": "@tsconfig/node22/tsconfig.json",
+  "include": [
+    "vite.config.*",
+    "vitest.config.*",
+    "cypress.config.*",
+    "nightwatch.conf.*",
+    "playwright.config.*",
+    "eslint.config.*"
+  ],
+  "compilerOptions": {
+    "noEmit": true,
+    "incremental": true, // Enables incremental compilation
+    "tsBuildInfoFile": "./node_modules/.cache/tsconfig.node.tsbuildinfo", // Cache location for incremental builds
+    "module": "ESNext", // Ensures compatibility with modern JavaScript
+    "moduleResolution": "Bundler", // Optimized for bundler-based workflows
+    "types": ["node"] // Includes Node.js type definitions
+  }
+}

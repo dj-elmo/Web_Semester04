@@ -1,0 +1,62 @@
+propertyname;en;de;nl
+kopf.titel;Rent-a-Kebab UdE;Dönerverleih UdE;Kebab Verhuur UdE
+kopf.benutzer;Users;Benutzer;Gebruikers
+kopf.logout;Logout;Logout;Uitloggen
+benutzer.name;Name;Name;Naam
+benutzer.email;E-Mail;Digitalpostanschrift;E-mailadres
+benutzer.vegetarizitaet;Vegetaricity;Vegetarizität;Graad van vegetarisme
+benutzer.vegetarizitaet.unvegetarisch;non-vegetarian;unvegetarisch;onvegetarisch
+benutzer.vegetarizitaet.vegetarisch;vegetarian;vegetarisch;vegetarisch
+benutzer.vegetarizitaet.vegan;vegan;vegan;vegan
+benutzer.rolle;Role;Rolle;Rol
+benutzer.rolle.admin;admin;Admin;admin
+benutzer.rolle.kunde;customer;Kunde;klant
+benutzer.rolle.gesperrt;blocked;gesperrt;geblokkeerd
+benutzer.losung;Password;Losung;Wachtwoord
+benutzer.losungwh;Repeat password;Losung (Wiederh.);Wachtwoord (herhaling)
+benutzer.fehler.geeignetelosung;password suboptimal;Losung ist nicht entsprechend;dit wachtwoord is echt ongeschikt
+benutzer.fehler.losungwiederholung;passwords do not match;Losungen weichen ab;wachtwoorden verschillen onderling
+benutzer.bearbeiten.titel;Edit user {0};Benutzer {0} bearbeiten;Gebruikersprofiel {0} bewerken
+benutzer.hallo;Hi;Moin;Hoi
+benutzer.liste.titel;User List;Benutzerliste;Lijst van alle gebruikers
+benutzer.liste.spalte.bearbeiten;edit;bearbeiten;bewerken
+benutzer.liste.spalte.loeschen;delete;löschen;wissen
+benutzer.liste.spalte.loginname;Login-Name;Login-Name;Gebruikers naam
+benutzer.liste.spalte.name;Name;Name;Naam
+benutzer.liste.spalte.email;E-Mail;Digitalpostanschrift;E-mailadres
+benutzer.liste.spalte.rolle;Role;Rolle;Rol
+benutzer.name.validation;Size must be between 3 and 60;Größe muss zwischen 3 und 60 Zeichen lang sein;Grotte moet tussen 3 en 60 liggen
+benutzer.email.validation;Please enter a valid email address;Bitte geben Sie eine gültige E-Mail-Adresse ein;Voer een geldig e-mailadres in
+benutzer.losung.validation;The password is not suitable;Die Losung ist nicht geeignet;De Wachtwoord is niet geschikt
+benutzer.losungwh.validation;The passwords differ;Die Losungen weichen ab;De wachtwoorden verschillen
+benutzer.DBlosungCheck.validation;password for user incorrect.;Losung für Benutzer falsch.;Wachtwoord voor gebruiker onjuist.
+benutzer.DBNoPwOrUserName.validation;Password must be specified for saving.;Losung muss zum speichern angegeben werden.;Voor het opslaan moet een wachtwoord worden opgegeven.
+
+kopf.doener;Kebabs;Döner;Kebabs
+doener.liste.titel;Kebab List;Dönerliste;Lijst van alle kebabs
+doener.liste.spalte.id;ID;ID;ID
+doener.liste.spalte.bezeichnung;Name;Bezeichnung;Aanduiding
+doener.liste.spalte.preis;Price;Preis;Prijs
+doener.liste.spalte.vegetarizitaet;Vegetaricity;Vegetarizität;Graad van vegetarisme
+doener.liste.spalte.bestand;Stock Level;Bestand;Voorraad
+doener.liste.spalte.bearbeiten;edit;bearbeiten;bewerken
+doener.liste.spalte.loeschen;delete;löschen;wissen
+doener.liste.neudoener;New kebab;Neuer Döner;Nieuw kebab
+doener.liste.rndmdoener;Create random kebab;Zufälligen Döner erstellen;Maak willekeurige kebab
+doener.anlegen.titel;Create a new kebab;Neuen Döner anlegen;Maak een nieuwe kebab
+
+doener.bearbeiten.titel;Edit kebab {0};Döner {0} bearbeiten;Kebab {0} bewerken
+doener.bearbeiten.neu.titel;Create new kebab;Neuen Döner anlegen;Nieuwe kebab creëeren
+doener.bezeichnung;Designation;Bezeichnung;Aanduiding
+doener.preis;Price;Preis;Prijs
+doener.vegetarizitaet;Vegetaricity;Vegetarizität;Graad van vegetarisme
+doener.bestand;Stock Level;Bestand;Voorraad
+doener.vegetarizitaet.0;non-vegetarian;unvegetarisch;onvegetarisch
+doener.vegetarizitaet.1;vegetarian;vegetarisch;vegetarisch
+doener.vegetarizitaet.2;vegan;vegan;vegan
+doener.zutaten;Ingredients;Zutaten;Ingrediënten
+zutat.fehler.ean;EAN must consist of 13 digits;EAN muss aus 13 Ziffern bestehen;Een EAN moet uit 13 cijfers bestaan
+
+doener.vegetarizitaet.0;non-vegetarian;unvegetarisch;onvegetarisch
+doener.vegetarizitaet.1;vegetarian;vegetarisch;vegetarisch
+doener.vegetarizitaet.2;vegan;vegan;vegan

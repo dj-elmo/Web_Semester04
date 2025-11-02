@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <title th:text="#{doener.bearbeiten.titel(${id})}">Döner bearbeiten</title>
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+
+<body>
+  <div th:insert="~{fragments/kopffuss :: kopf}"></div>
+
+  <main>
+    <h1>
+      <span th:text="${id == 0} ? #{doener.anlegen.titel} : #{doener.bearbeiten.titel(${id})}">
+        Neuen Döner anlegen
+      </span>
+    </h1>
+
+    <form th:action="@{'/doener/' + ${id}}" th:object="${formular}" method="post">
+      <!--<input type="hidden" th:field="*{version}" />-->
+      <table>
+        <tr>
+          <td><label for="bezeichnung" th:text="#{doener.bezeichnung}">Bezeichnung</label></td>
+          <td th:classappend="${#fields.hasErrors('bezeichnung')} ? 'feldfehler'">
+            <input id="bezeichnung" type="text" th:field="*{bezeichnung}" />
+            <div th:if="${#fields.hasErrors('bezeichnung')}" th:errors="*{bezeichnung}" class="fehlertext"></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="preis" th:text="#{doener.preis}">Preis</label></td>
+          <td th:classappend="${#fields.hasErrors('preis')} ? 'feldfehler'">
+            <input id="preis" type="number" th:field="*{preis}" />
+            <div th:if="${#fields.hasErrors('preis')}" th:errors="*{preis}" class="fehlertext"></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label th:text="#{doener.vegetarizitaet}">Vegetarizität</label></td>
+          <td>
+            <input type="radio" id="unvegetarisch" name="vegetarizitaet" value="0" th:field="*{vegetarizitaet}" />
+            <label for="unvegetarisch" th:text="#{doener.vegetarizitaet.0}">unvegetarisch</label>
+
+            <input type="radio" id="vegetarisch" name="vegetarizitaet" value="1" th:field="*{vegetarizitaet}" />
+            <label for="vegetarisch" th:text="#{doener.vegetarizitaet.1}">vegetarisch</label>
+
+            <input type="radio" id="vegan" name="vegetarizitaet" value="2" th:field="*{vegetarizitaet}" />
+            <label for="vegan" th:text="#{doener.vegetarizitaet.2}">vegan</label>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="bestand" th:text="#{doener.bestand}">Bestand</label></td>
+          <td th:classappend="${#fields.hasErrors('bestand')} ? 'feldfehler'">
+            <input id="bestand" type="number" th:field="*{bestand}" />
+            <div th:if="${#fields.hasErrors('bestand')}" th:errors="*{bestand}" class="fehlertext"></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="zutaten" th:text="#{doener.zutaten}">Zutaten</label></td>
+          <td>
+            <select id="zutaten" th:field="*{zutatenEan}" name="zutatenEan[]" multiple size="6">
+              <option th:each="zutat : ${alleZutaten}" 
+              th:value="${zutat.ean}" th:text="${zutat.name}">
+              </option>
+            </select>
+            <div th:if="${#fields.hasErrors('zutatenEan')}" th:errors="*{zutatenEan}"
+              class="fehlertext"></div>
+          </td>
+        </tr>
+      </table>
+
+      <button type="submit">OK</button>
+      <button type="reset">Reset</button>
+    </form>
+  </main>
+
+  <div th:insert="~{fragments/kopffuss :: fuss}"></div>
+</body>
+
+</html>

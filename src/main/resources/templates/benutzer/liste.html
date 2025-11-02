@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <meta charset="UTF-8" />
+  <title th:text="#{benutzer.liste.titel}">Benutzerlister</title>
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <script src="https://unpkg.com/htmx.org@2.0.4"
+    integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div th:insert="~{fragments/kopffuss :: kopf}"></div>
+
+  <main>
+    <h1>
+      <span th:text="#{benutzer.liste.titel}">Liste der Benutzer</span>
+    </h1>
+    <table>
+      <thead>
+        <tr>
+          <th th:text="#{benutzer.liste.spalte.loginname}">Login</th>
+          <th th:text="#{benutzer.liste.spalte.name}">Name</th>
+          <th th:text="#{benutzer.liste.spalte.email}">E-Mail</th>
+          <th th:text="#{benutzer.liste.spalte.rolle}">Rolle</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="benutzer : ${benutzerListe}">
+          <td th:text="${benutzer.loginName}">login</td>
+          <td
+            th:replace="~{benutzer/eingabefeld :: ausgeben(loginName=${benutzer.loginName},feldname='name',wert=${benutzer.name})}">
+          </td>
+          <td
+            th:replace="~{benutzer/eingabefeld :: ausgeben(loginName=${benutzer.loginName},feldname='digitalpostanschrift',wert=${benutzer.digitalpostanschrift})}">
+          </td>
+          <td th:text="${benutzer.rolle}">Rolle</td>
+          <td>
+            <a th:href="@{'/benutzer/' + ${benutzer.loginName}}" th:text="#{benutzer.liste.spalte.bearbeiten}"
+              class="bearbeiten">Bearbeiten</a>
+            <a th:href="@{'/benutzer/' + ${benutzer.loginName} + '/delete'}" th:text="#{benutzer.liste.spalte.loeschen}"
+              class="loeschen">Löschen</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer th:replace="~{fragments/kopffuss :: fuss}"></footer>
+</body>
+
+</html>
